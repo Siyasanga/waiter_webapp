@@ -1,0 +1,19 @@
+{
+  "name": "waiter_webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Siyasanga Mtshokotsha",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "e": "0.0.4",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.11.6"
+  }
+}
