@@ -1,39 +1,46 @@
+body{
+  width: 98.8vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
 nav{
-  height: 100px;
-  background-color: red;
+  height: 13%;
+  background-color: #00AF84;
 }
 .container{
   position:relative;
-}
-.imageWrap{
-  position: relative;
-  height: 80vh;
-  background-color: yellow;
+  height: 83%;
 }
 .forms{
   float: right;
   position: relative;
-  top:-570px;
+  top:-590px;
   opacity: 1;
 }
 .f1{
   padding-bottom: 10px;
+  opacity: 1;
+}
+.ff1{
+  margin-right: 5px;
 }
 .f2{
-  color: white;
+  color: Black;
   font-weight: bold;
+  opacity: 1;
+  padding: 10px;
+}
+.f1,.f2{
+  text-shadow: 2px 2px 6px white;
 }
 .inReg{
   width: 250px;
 }
 .overlay{
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  -webkit-filter: blur(1000px);
   background-image: url("bgpic.jpg");
+  background-size:100% 100%;
   background-repeat: no-repeat;
-  /*background-size:80% 100%;*/
-  /*opacity: 90%;*/
+  height: 100%;
+  -webkit-filter: blur(6px);
 }
