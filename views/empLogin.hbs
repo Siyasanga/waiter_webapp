@@ -1,0 +1,28 @@
+<a href="#" id="logout">logout</a>
+<h1>Welcome back, {{name}}</h1>
+<h3>Feel free to update your availability for the week</h3>
+<form class=""method="post">
+  <div class="btn-group">
+    <label class="btn btn-secondary active">
+      <input type="checkbox" {{if Monday}} checked{{/if}} autocomplete="off"> Monday
+    </label>
+    <label class="btn btn-secondary active">
+      <input type="checkbox" {{if Monday}} checked{{/if}} autocomplete="off"> Tuesday
+    </label>
+    <label class="btn btn-secondary active">
+      <input type="checkbox" {{if Monday}} checked{{/if}} autocomplete="off"> Wednesday
+    </label>
+    <label class="btn btn-secondary active">
+      <input type="checkbox" checked autocomplete="off"> Thursday
+    </label>
+    <label class="btn btn-secondary active">
+      <input type="checkbox" checked autocomplete="off"> Friday
+    </label>
+    <label class="btn btn-secondary active">
+      <input type="checkbox" checked autocomplete="off"> Saturday
+    </label>
+    <label class="btn btn-secondary active">
+      <input type="checkbox" checked autocomplete="off"> Sunday
+    </label>
+  </div>
+</form>

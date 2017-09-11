@@ -8,6 +8,9 @@ app.use(express.static("public"));
 app.get("/",function(req, res) {
   res.render("days");
 });
+app.get("/user",function(req, res) {
+  res.render("empLogin");
+});
 
 var port = process.env.PORT || 3000;
 var host = process.env.HOST || "http://localhost";
