@@ -11,6 +11,9 @@ app.get("/",function(req, res) {
 app.get("/user",function(req, res) {
   res.render("empLogin");
 });
+app.get("/admin",function(req, res) {
+  res.render("adminLogin");
+});
 
 var port = process.env.PORT || 3000;
 var host = process.env.HOST || "http://localhost";

@@ -1,28 +1,31 @@
-<a href="#" id="logout">logout</a>
-<h1>Welcome back, {{name}}</h1>
-<h3>Feel free to update your availability for the week</h3>
-<form class=""method="post">
-  <div class="btn-group">
-    <label class="btn btn-secondary active">
-      <input type="checkbox" {{if Monday}} checked{{/if}} autocomplete="off"> Monday
-    </label>
-    <label class="btn btn-secondary active">
-      <input type="checkbox" {{if Monday}} checked{{/if}} autocomplete="off"> Tuesday
-    </label>
-    <label class="btn btn-secondary active">
-      <input type="checkbox" {{if Monday}} checked{{/if}} autocomplete="off"> Wednesday
-    </label>
-    <label class="btn btn-secondary active">
-      <input type="checkbox" checked autocomplete="off"> Thursday
-    </label>
-    <label class="btn btn-secondary active">
-      <input type="checkbox" checked autocomplete="off"> Friday
-    </label>
-    <label class="btn btn-secondary active">
-      <input type="checkbox" checked autocomplete="off"> Saturday
-    </label>
-    <label class="btn btn-secondary active">
-      <input type="checkbox" checked autocomplete="off"> Sunday
-    </label>
-  </div>
-</form>
+  <a href="#" id="logout" class="btn btn-primary" role="button">logout</a>
+  <h1 id="welcome">Welcome back, {{name}}</h1>
+  <div class="userLogin">
+  <h3>Feel free to update your availability for the week</h3>
+  <form class=""method="post">
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-secondary">
+        <input type="checkbox" autocomplete="off"> Monday
+      </label>
+      <label class="btn btn-secondary">
+        <input type="checkbox" autocomplete="off"> Tuesday
+      </label>
+      <label class="btn btn-secondary">
+        <input type="checkbox" autocomplete="off"> Wednesday
+      </label>
+      <label class="btn btn-secondary">
+        <input type="checkbox" checked autocomplete="off"> Thursday
+      </label>
+      <label class="btn btn-secondary">
+        <input type="checkbox" checked autocomplete="off"> Friday
+      </label>
+      <label class="btn btn-secondary">
+        <input type="checkbox" checked autocomplete="off"> Saturday
+      </label>
+      <label class="btn btn-secondary">
+        <input type="checkbox" checked autocomplete="off"> Sunday
+      </label>
+    </div>
+    <button class="btn btn-primary updateDays" type="submit" name="submit">Submit Days</button>
+  </form>
+</div>

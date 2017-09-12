@@ -44,3 +44,35 @@ nav{
   height: 100%;
   -webkit-filter: blur(6px);
 }
+.overlay2{
+  position: absolute;
+  background-color: red;
+  width: 100%;
+  height: 100%;
+}
+.updateDays{
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+.userLogin, .btn-group{
+  padding-top: 15px;
+  text-align: center;
+  align-items: center;
+}
+.adminLogin{
+  margin-top: -20px;
+}
+#logout{
+  position: absolute;
+  top:-70px;
+  left:1000px;
+}
+#welcome{
+  margin-top: 10px;
+}
+.nav-menu{
+  position: relative;;
+  top: -60px;
+  left: 986px;
+}
