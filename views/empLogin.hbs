@@ -2,36 +2,36 @@
   <h1 id="welcome">Welcome back, {{name}}</h1>
   <div class="userLogin">
   <h3>Feel free to update your availability for the week</h3>
-  <form class=""method="post">
+  <form action=""method="post">
     <div class="btn-group" data-toggle="buttons">
       <label class="btn btn-secondary">
-        <input type="checkbox" autocomplete="off"> Monday
+        <input type="checkbox" name="days"autocomplete="off" value="monday">Monday
       </label>
       <label class="btn btn-secondary">
-        <input type="checkbox" autocomplete="off"> Tuesday
+        <input type="checkbox" name="days" autocomplete="off" value="tuesday">Tuesday
       </label>
       <label class="btn btn-secondary">
-        <input type="checkbox" autocomplete="off"> Wednesday
+        <input type="checkbox" name="days" autocomplete="off" value="wednesday">Wednesday
       </label>
       <label class="btn btn-secondary">
-        <input type="checkbox" checked autocomplete="off"> Thursday
+        <input type="checkbox" name="days" autocomplete="off" value="thursday">Thursday
       </label>
       <label class="btn btn-secondary">
-        <input type="checkbox" checked autocomplete="off"> Friday
+        <input type="checkbox" name="days" autocomplete="off" value="friday">Friday
       </label>
       <label class="btn btn-secondary">
-        <input type="checkbox" checked autocomplete="off"> Saturday
+        <input type="checkbox" name="days" autocomplete="off" value="saturday">Saturday
       </label>
       <label class="btn btn-secondary">
-        <input type="checkbox" checked autocomplete="off"> Sunday
+        <input type="checkbox" name="days" autocomplete="off" value="sunday">Sunday
       </label>
     </div>
     <button class="btn btn-primary updateDays" type="submit" name="submit">Submit Days</button>
-    {{#if true}}
+    {{#if submitted}}
       <div id="loader"></div>
       <script src="/function.js" charset="utf-8"></script>
     {{/if}}
-    {{#if true}}
+    {{#if feedback}}
       <div id="feedback"class="alert alert-success" role="alert">
         Schedule succefully updated!
       </div>
