@@ -1,10 +1,10 @@
 <div class="overlay">
 </div>
 <div class="forms">
-  <form class="form-inline" action="/" method="post">
+  <form class="form-inline" action="/login" method="post">
     <div class="form-group f1">
-      <input type="email" class="form-control ff1" placeholder="Enter username">
-      <input type="password" class="form-control ff1" placeholder="Password">
+      <input type="text" name="username" required class="form-control ff1" placeholder="Enter username">
+      <input type="password" name="password" required class="form-control ff1" placeholder="Password">
       <button type="submit" class="btn btn-primary">Sign in</button>
       {{#if messages.failedLogin}}
         <small class="alert-warning">messages.failedLogin</small>
@@ -15,20 +15,20 @@
     <div class="form-group f2">
       <h2 class="heading">Register as a new employee</h2>
       <label for="firstname">Firstname:</label>
-      <input class="form-control inReg" type="text" id="firstname" placeholder="Enter your name"><br>
+      <input class="form-control inReg" name="firstname" type="text" id="firstname" placeholder="Enter your name"><br>
       {{#if messages.firstname}}
       <small class="alert-warning">{{messages.firstname}}</small>
       {{/if}}
-      <label for="surname">Username:</label>
-      <input class="form-control inReg" type="text" id="surname" placeholder="Enter your surname"><br>
+      <label for="username">Username:</label>
+      <input class="form-control inReg" name="username" type="text" id="username" placeholder="Enter your surname"><br>
       {{#if messages.usernameDuplicate}}
       <small class="alert-warning">{{messages.usernameDuplicate}}</small>
       {{/if}}
       <label for="pass">Create new password:</label>
-      <input class="form-control inReg" type="password" id="pass" placeholder="Enter new password"><br>
+      <input class="form-control inReg" name="pass" type="password" id="pass" placeholder="Enter new password"><br>
       <label for="confirm">Confirm new password:</label>
-      <input class="form-control inReg" type="password" id="confirm" placeholder="Confirm password"><br>
-      <button class="btn btn-primary" type="submit" name="register">Submit registration</button>
+      <input class="form-control inReg" name="confirm" type="password" id="confirm" placeholder="Confirm password"><br>
+      <button class="btn btn-primary" type="submit">Submit registration</button>
       {{#if messages.mismatch}}
       <small class="invalid">{{messages.mismatch}}</small>
       {{/if}}
