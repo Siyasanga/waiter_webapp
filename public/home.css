@@ -79,3 +79,16 @@ nav{
 .heading{
   padding-bottom: 10px;
 }
+#loader{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 5px solid #ccc;
+  border-top-color: #00AF84;
+  margin: 30px auto;
+  animation: goround 1s linear infinite;
+}
+@keyframes goround{
+  from{transform: rotate(0deg)}
+  to{ transform: rotate(360deg)}
+}
