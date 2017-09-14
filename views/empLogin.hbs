@@ -27,7 +27,14 @@
       </label>
     </div>
     <button class="btn btn-primary updateDays" type="submit" name="submit">Submit Days</button>
-    <div id="loader">
-    </div>
+    {{#if true}}
+      <div id="loader"></div>
+      <script src="/function.js" charset="utf-8"></script>
+    {{/if}}
+    {{#if true}}
+      <div id="feedback"class="alert alert-success" role="alert">
+        Schedule succefully updated!
+      </div>
+    {{/if}}
   </form>
 </div>
