@@ -13,7 +13,7 @@ app.get("/user",function(req, res) {
   res.render("empLogin");
 });
 app.post("/",function(req, res) {
-  res.render("empLogin");
+  res.render("empLogin",{submitted:true});
 });
 app.post("/registration",function(req, res) {
   console.log(req.body);
