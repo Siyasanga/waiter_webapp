@@ -30,7 +30,12 @@
       <input class="form-control inReg" required name="confirm" type="password" id="confirm" placeholder="Confirm password"><br>
       <button class="btn btn-primary" type="submit">Submit registration</button>
       {{#if messages.mismatch}}
-      <small class="invalid">{{messages.mismatch}}</small>
+        <small class="invalid">{{messages.mismatch}}</small>
+      {{/if}}
+      {{#if messages.regSuccess}}
+        <div id="regSuccess" class="alert alert-success" role="alert">
+          {{messages.regSuccess}}
+        </div>
       {{/if}}
     </div>
   </form>
