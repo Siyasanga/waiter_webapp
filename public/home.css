@@ -107,3 +107,7 @@ nav{
   margin: 30px auto;
   display: none;
 }
+#regSuccess{
+  margin-top: 15px;
+  text-align: center;
+}
