@@ -13,13 +13,13 @@ var employee = mongoose.model("employee", {
 });
 var weeklyShift = mongoose.model("weeklyShift", {
   name:{type:String},
-  monday:{type:String, default:null},
-  tuesday:{type:String, default:null},
-  wednesday:{type:String, default:null},
-  thursday:{type:String, default:null},
-  friday:{type:String, default:null},
-  saturday:{type:String, default:null},
-  sunday:{type:String, default:null}
+  monday:{type:Boolean, default:false},
+  tuesday:{type:Boolean, default:false},
+  wednesday:{type:Boolean, default:false},
+  thursday:{type:Boolean, default:false},
+  friday:{type:Boolean, default:false},
+  saturday:{type:Boolean, default:false},
+  sunday:{type:Boolean, default:false}
 });
 module.exports = { "employee":employee,
                    "weeklyShift":weeklyShift};
