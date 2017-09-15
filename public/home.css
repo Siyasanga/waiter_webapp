@@ -71,7 +71,7 @@ nav{
   align-items: center;
 }
 .adminLogin{
-  margin-top: -20px;
+  /*margin-top: -20px;*/
 }
 #logout{
   position: fixed;
@@ -83,7 +83,7 @@ nav{
 }
 .nav-menu{
   position: relative;;
-  top: -60px;
+  top: -65px;
   left: 986px;
 }
 .heading{
