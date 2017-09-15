@@ -111,3 +111,19 @@ nav{
   margin-top: 15px;
   text-align: center;
 }
+#mismatch{
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  width: 330px;
+  text-align: center;
+}
+#newUser{
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  width: 190px;
+  text-align: center;
+}
