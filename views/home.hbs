@@ -11,23 +11,23 @@
       {{/if}}
     </div>
   </form>
-  <form action="/registration" method="post">
+  <form action="/home/registration" method="post">
     <div class="form-group f2">
       <h2 class="heading">Register as a new employee</h2>
       <label for="firstname">Firstname:</label>
-      <input class="form-control inReg" name="firstname" type="text" id="firstname" placeholder="Enter your name"><br>
+      <input class="form-control inReg" required name="firstname" type="text" id="firstname" placeholder="Enter your name"><br>
       {{#if messages.firstname}}
       <small class="alert-warning">{{messages.firstname}}</small>
       {{/if}}
       <label for="username">Username:</label>
-      <input class="form-control inReg" name="username" type="text" id="username" placeholder="Enter your surname"><br>
+      <input class="form-control inReg" required name="username" type="text" id="username" placeholder="Enter your surname"><br>
       {{#if messages.usernameDuplicate}}
       <small class="alert-warning">{{messages.usernameDuplicate}}</small>
       {{/if}}
       <label for="pass">Create new password:</label>
-      <input class="form-control inReg" name="pass" type="password" id="pass" placeholder="Enter new password"><br>
+      <input class="form-control inReg" required name="pass" type="password" id="pass" placeholder="Enter new password"><br>
       <label for="confirm">Confirm new password:</label>
-      <input class="form-control inReg" name="confirm" type="password" id="confirm" placeholder="Confirm password"><br>
+      <input class="form-control inReg" required name="confirm" type="password" id="confirm" placeholder="Confirm password"><br>
       <button class="btn btn-primary" type="submit">Submit registration</button>
       {{#if messages.mismatch}}
       <small class="invalid">{{messages.mismatch}}</small>
