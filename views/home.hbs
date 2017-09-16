@@ -6,11 +6,11 @@
       <input type="text" name="username" required class="form-control ff1" placeholder="Enter username">
       <input type="password" name="password" required class="form-control ff1" placeholder="Password">
       <button type="submit" class="btn btn-primary">Sign in</button>
-      {{#if messages.failedLogin}}
-        <small id="failedLogin" class="alert-warning">messages.failedLogin</small>
-      {{/if}}
     </div>
   </form>
+  {{#if messages.failedLogin}}
+  <small id="failedLogin" class="alert-danger">{{messages.failedLogin}}</small>
+  {{/if}}
   <form action="/home/registration" method="post">
     <div class="form-group f2">
       <h2 class="heading">Register as a new employee</h2>
