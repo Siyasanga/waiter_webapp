@@ -108,7 +108,7 @@ nav{
   display: none;
 }
 #regSuccess{
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: center;
 }
 #mismatch{
@@ -118,6 +118,7 @@ nav{
   font-size: 15px;
   width: 330px;
   text-align: center;
+  border-radius: 2px;
 }
 #newUser{
   display: block;
@@ -126,4 +127,14 @@ nav{
   font-size: 15px;
   width: 190px;
   text-align: center;
+  border-radius: 2px;
+}
+#failedLogin{
+  display: block;
+  position: fixed;
+  margin-top: -48px;
+  font-size: 15px;
+  width: 250px;
+  text-align: center;
+  border-radius: 2px;
 }
