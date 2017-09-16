@@ -7,7 +7,7 @@
       <input type="password" name="password" required class="form-control ff1" placeholder="Password">
       <button type="submit" class="btn btn-primary">Sign in</button>
       {{#if messages.failedLogin}}
-        <small class="alert-warning">messages.failedLogin</small>
+        <small id="failedLogin" class="alert-warning">messages.failedLogin</small>
       {{/if}}
     </div>
   </form>
