@@ -19,34 +19,36 @@ app.use(body.json());
 app.get("/",function(req, res) {
   res.render("home");
 });
-// Rendering view for the logged in employee
+// Rendering view for the logged in employee with relevent data
 app.get("/:username",function(req, res) {
-  res.render("empLogin");
-});
+  database.weeklyShift.findOne({name:req.params.username},function(err, doc) {
+    if(err)
+      console.log("Error accessing the collection: \n"+err);
+    else {
+      res.render("empLogin",{name:req.params.username, account:doc});
+    }
+  }) // end of findOne()
+}); // end of get()
 // Rendering screen for the logged in admin
 app.get("/home/Admin",function(req, res) {
   res.render("adminLogin");
 });
 // Updating availability of the logged in employee
 app.post("/:username",function(req, res) {
-  console.log(req.params.username+'\n'+req.body.days);
-  var obj = JSON.parse(setDays(req.body.days));
-  console.log(obj[0]);
-  // database.weeklyShift.update({name:req.params.username},{$set:{eval("monday:true")}},function(err,result) {
-  //   if(err)
-  //     console.log("Could not update weeklyShift:\n"+err);
-  //     res.redirect('/'+req.params.username);
-  //   else {
-  //     console.log(result);
-  //     res.redirect('/'+req.params.username);
-  //   }
-  // });
-});
+  // Removing the old entry for the employee
+  database.weeklyShift.remove({name:req.params.username},function(err) {
+    if(!err)
+      updateDays(req,res);
+    else
+      console.log("Error removing entry for"+req.params.username+" in weeklyShift:\n"+err);
+  }); // end of remove()
+}); // end of post
 // Managing paths for logins
 app.post("/home/login",function(req, res) {
   console.log(req.body);
   if (req.body.username == "Admin") {
     res.redirect(req.body.username);
+    return;
   }
   database.employee.findOne({username:req.body.username, password:req.body.password},function(err,doc) {
     if(err)
@@ -59,7 +61,7 @@ app.post("/home/login",function(req, res) {
       res.redirect("/");
     }
   }) // end of findOne
-});
+}); // end post()
 // Processing the registration of a new employee
 app.post("/home/registration",function(req, res) {
   // Making sure that password and confirmation password are identical
@@ -69,34 +71,14 @@ app.post("/home/registration",function(req, res) {
   }else {
     // Checking if this is not a duplicate user
     database.employee.findOne({username:req.body.username},function(err,doc) {
-      if(err) {
-        console.log("Era yam:\n"+err);
-      }else if(doc){
+      if(err)
+        console.log("Error, lost connection to the database:\n"+err);
+      else if(doc){
         req.flash("duplicateUser","Username already exists.");
         res.redirect("/");
       }
-      else {
-        // registering the new user
-        var newUser = new database.employee({name:req.body.firstname, username:req.body.username, password:req.body.pass});
-        newUser.save(function(err, doc) {
-          if(err)
-            console.log(err);
-          else {
-            console.log("successfuly registered:\n"+doc);
-            req.flash("regSuccess","New account successfuly registered!");
-            // Creating an entry for this new user in the weeklyShift collection
-            var workerShifts = new database.weeklyShift({name:newUser.name});
-            workerShifts.save(function(err, doc) {
-              if(err)
-                console.log("Error creating entry for new employee in weeklyShift:\n"+err);
-              else {
-                console.log("Entry created for new employee in the weeklyShift collection:\n"+doc);
-                res.redirect("/");
-              }
-            }); // end of inner save
-          } // end of outer else
-        }); // end of save
-      }
+      else
+        registerUser(req,res);
     });
   }
 });
@@ -105,10 +87,44 @@ var host = process.env.HOST || "http://localhost";
 app.listen(port, function() {
   console.log("Server running at "+host+":"+port+"/");
 });
-function setDays(days) {
-  var result = "{"+days[0]+":"+true;
-  for(var i=1; i<days.length; i++){
-    result += ", "+days[i]+":"+true;
+// registering the new user
+function registerUser(req,res) {
+  var newUser = new database.employee({name:req.body.firstname, username:req.body.username, password:req.body.pass});
+  newUser.save(function(err, doc) {
+    if(err)
+      console.log(err);
+    else {
+      req.flash("regSuccess","New account successfuly registered!");
+      res.redirect("/");
+    } // end of outer else
+  }); // end of save
+} // end of registerUser()
+// Collecting data for employee in weeklyShift
+function setDays(user, days) {
+  var result = {name:user};
+  if(!days)
+    return {name:user};
+  if(typeof(days)=="string"){
+    result[days] = true;
+    return result;
   }
-  return result+"}";
+  for(var i=0; i<days.length; i++){
+    result[days[i]] = true;
+  }
+  return result;
+}
+// Update days for logged in employee
+function updateDays(req,res) {
+  var workerShifts = new database.weeklyShift(setDays(req.params.username,req.body.days));
+  workerShifts.save(function(err, doc) {
+    if(err){
+      console.log("Could not update weeklyShift:\n"+err);
+      res.redirect('/'+req.params.username);
+    }else {
+      console.log(doc);
+      req.flash("submitted","true");
+      req.flash("feedback","true");
+      res.redirect('/'+req.params.username);
+    }
+  }); // end of save()
 }
