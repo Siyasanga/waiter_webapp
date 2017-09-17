@@ -1,37 +1,37 @@
   <a href="/" id="logout" class="btn btn-primary" role="button">logout</a>
-  <h1 id="welcome">Welcome back, {{name}}</h1>
+  <h1 id="welcome">Welcome back, {{name}}!</h1>
   <div class="userLogin">
   <h3>Feel free to update your availability for the week</h3>
   <form action=""method="post">
     <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-secondary" {{#if this.monday}}active{{/if}}>
-        <input type="checkbox" name="days"autocomplete="off" value="monday">Monday
+      <label class="btn btn-secondary {{#if account.monday}}active{{/if}}">
+        <input type="checkbox" name="days"autocomplete="off" {{#if account.monday}}checked{{/if}} value="monday">Monday
       </label>
-      <label class="btn btn-secondary" {{#if this.tuesday}}active{{/if}}>
-        <input type="checkbox" name="days" autocomplete="off" value="tuesday">Tuesday
+      <label class="btn btn-secondary {{#if account.tuesday}}active{{/if}}">
+        <input type="checkbox" name="days" autocomplete="off" {{#if account.tuesday}}checked{{/if}} value="tuesday">Tuesday
       </label>
-      <label class="btn btn-secondary" {{#if this.wednesday}}active{{/if}}>
-        <input type="checkbox" name="days" autocomplete="off" value="wednesday">Wednesday
+      <label class="btn btn-secondary {{#if account.wednesday}}active{{/if}}">
+        <input type="checkbox" name="days" autocomplete="off" {{#if account.wednesday}}checked{{/if}} value="wednesday">Wednesday
       </label>
-      <label class="btn btn-secondary" {{#if this.thursday}}active{{/if}}>
-        <input type="checkbox" name="days" autocomplete="off" value="thursday">Thursday
+      <label class="btn btn-secondary {{#if account.thursday}}active{{/if}}">
+        <input type="checkbox" name="days" autocomplete="off" {{#if account.thursday}}checked{{/if}} value="thursday">Thursday
       </label>
-      <label class="btn btn-secondary" {{#if this.friday}}active{{/if}}>
-        <input type="checkbox" name="days" autocomplete="off" value="friday">Friday
+      <label class="btn btn-secondary {{#if account.friday}}active{{/if}}">
+        <input type="checkbox" name="days" autocomplete="off" {{#if account.friday}}checked{{/if}} value="friday">Friday
       </label>
-      <label class="btn btn-secondary" {{#if this.saturday}}active{{/if}}>
-        <input type="checkbox" name="days" autocomplete="off" value="saturday">Saturday
+      <label class="btn btn-secondary {{#if account.saturday}}active{{/if}}">
+        <input type="checkbox" name="days" autocomplete="off" {{#if account.saturday}}checked{{/if}} value="saturday">Saturday
       </label>
-      <label class="btn btn-secondary" {{#if this.sunday}}active{{/if}}>
-        <input type="checkbox" name="days" autocomplete="off" value="sunday">Sunday
+      <label class="btn btn-secondary {{#if account.sunday}}active{{/if}}">
+        <input type="checkbox" name="days" autocomplete="off" {{#if account.sunday}}checked{{/if}} value="sunday">Sunday
       </label>
     </div>
     <button class="btn btn-primary updateDays" type="submit" name="submit">Submit Days</button>
-    {{#if submitted}}
+    {{#if messages.submitted}}
       <div id="loader"></div>
       <script src="/function.js" charset="utf-8"></script>
     {{/if}}
-    {{#if feedback}}
+    {{#if messages.feedback}}
       <div id="feedback"class="alert alert-success" role="alert">
         Schedule succefully updated!
       </div>
