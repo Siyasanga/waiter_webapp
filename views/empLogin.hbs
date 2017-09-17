@@ -4,25 +4,25 @@
   <h3>Feel free to update your availability for the week</h3>
   <form action=""method="post">
     <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-secondary">
+      <label class="btn btn-secondary" {{#if this.monday}}active{{/if}}>
         <input type="checkbox" name="days"autocomplete="off" value="monday">Monday
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-secondary" {{#if this.tuesday}}active{{/if}}>
         <input type="checkbox" name="days" autocomplete="off" value="tuesday">Tuesday
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-secondary" {{#if this.wednesday}}active{{/if}}>
         <input type="checkbox" name="days" autocomplete="off" value="wednesday">Wednesday
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-secondary" {{#if this.thursday}}active{{/if}}>
         <input type="checkbox" name="days" autocomplete="off" value="thursday">Thursday
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-secondary" {{#if this.friday}}active{{/if}}>
         <input type="checkbox" name="days" autocomplete="off" value="friday">Friday
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-secondary" {{#if this.saturday}}active{{/if}}>
         <input type="checkbox" name="days" autocomplete="off" value="saturday">Saturday
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-secondary" {{#if this.sunday}}active{{/if}}>
         <input type="checkbox" name="days" autocomplete="off" value="sunday">Sunday
       </label>
     </div>
