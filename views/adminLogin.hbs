@@ -6,47 +6,13 @@
   <div class="overlay2">
   </div>
   <div class="card-group text-align-center">
+    {{#each day}}
     <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>Monday</h5></div>
+    <div class="card-header"><h5>{{this}}</h5></div>
       <div class="card-body">
         <h6 class="card-title">Subscriptions: </h6>
       </div>
     </div>
-    <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>Tuesday</h5></div>
-      <div class="card-body">
-        <h6 class="card-title">Subscriptions: </h6>
-      </div>
-    </div>
-    <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>Wednesday</h5></div>
-      <div class="card-body">
-        <h6 class="card-title">Subscriptions: </h6>
-      </div>
-    </div>
-    <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>Thursday</h5></div>
-      <div class="card-body">
-        <h6 class="card-title">Subscriptions: </h6>
-      </div>
-    </div>
-    <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>Friday</h5></div>
-      <div class="card-body">
-        <h6 class="card-title">Subscriptions: </h6>
-      </div>
-    </div>
-    <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>Saturday</h5></div>
-      <div class="card-body">
-        <h6 class="card-title">Subscriptions: </h6>
-      </div>
-    </div>
-    <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>Sunday</h5></div>
-      <div class="card-body">
-        <h6 class="card-title">Subscriptions: </h6>
-      </div>
-    </div>
+    {{/each}}
   </div>
 </div>
