@@ -15,6 +15,7 @@ app.use(body.urlencoded({
   extended:false
 }));
 app.use(body.json());
+var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 // Rendering the home page
 app.get("/",function(req, res) {
   res.render("home");
@@ -26,12 +27,16 @@ app.get("/:username",function(req, res) {
       console.log("Error accessing the collection: \n"+err);
     else {
       res.render("empLogin",{name:req.params.username, account:doc});
+      getDaySubs(function(result) {
+        console.log("This our beautiful object:");
+        console.log(result);
+      })
     }
   }) // end of findOne()
 }); // end of get()
 // Rendering screen for the logged in admin
 app.get("/home/Admin",function(req, res) {
-  res.render("adminLogin");
+  res.render("adminLogin",{day:days});
 });
 // Updating availability of the logged in employee
 app.post("/:username",function(req, res) {
@@ -128,3 +133,64 @@ function updateDays(req,res) {
     }
   }); // end of save()
 }
+// Get total number of subscribers for each day
+function getDaySubs(cb) {
+  var dayz = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+  //var totals = [];
+
+  var daysQueries = dayz.map(function(day){
+    var condition = {};
+    condition[day] = true;
+    return database.employee.find(condition);
+  });
+
+  //Wait for all the promises to complete
+  Promise.all(daysQueries, function(waitersForDays){
+    //console.log(waitersForDays.length);
+
+    var waitersForEachDay = waitersForDays.map(function(dayWaiters, index){
+      var day = dayz[index];
+      return {
+        day,
+        waiters : dayWaiters
+      }
+    });
+
+    cb(null, waitersForEachDay);
+
+  }).catch(cb);
+
+
+  // database.employee.find({sunday:true}, function(err,result) {
+  //   if(err)
+  //     console.log("Error finding '"+dayz[index]+"' in the weeklyShift:\n"+err);
+  //   else {
+  //     console.log(result);
+  //     totals.push({ day:dayz[index],
+  //                   subs:result.length});
+  //     console.log({ day:dayz[index],
+  //                   subs:result.length});
+  //   }
+  //
+  //
+  //
+  //
+  //
+  //   dayz.forEach(function(listItem, index) {
+  //     var condition = {};
+  //     condition[listItem] = true;
+  //
+  //     database.employee.find({sunday:true}, function(err,result) {
+  //       if(err)
+  //         console.log("Error finding '"+dayz[index]+"' in the weeklyShift:\n"+err);
+  //       else {
+  //         console.log(result);
+  //         totals.push({ day:dayz[index],
+  //                       subs:result.length});
+  //         console.log({ day:dayz[index],
+  //                       subs:result.length});
+  //       }
+  //     });
+  //   }); //
+  // console.log(totals);
+  }
