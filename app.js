@@ -27,15 +27,26 @@ app.get("/:username",function(req, res) {
       console.log("Error accessing the collection: \n"+err);
     else {
       res.render("empLogin",{name:req.params.username, account:doc});
-      getDaySubs(function(result) {
-        console.log("This our beautiful object:");
-        console.log(result);
-      })
     }
   }) // end of findOne()
 }); // end of get()
 // Rendering screen for the logged in admin
 app.get("/home/Admin",function(req, res) {
+  var totals = [];
+  getDaySubs().then(function(weeklySchedule) {
+    console.log(weeklySchedule);
+    // console.log(days);
+    totals = days.map(function(current, i) {
+      console.log(current,i);
+      // var day = {};
+
+      // var day.[current] = weeklySchedule[index];
+      return current;
+    });
+  });
+  Promise.all(totals).then(function(results) {
+    console.log("Another Try: "+results+" down the drain");
+  })
   res.render("adminLogin",{day:days});
 });
 // Updating availability of the logged in employee
@@ -134,31 +145,25 @@ function updateDays(req,res) {
   }); // end of save()
 }
 // Get total number of subscribers for each day
-function getDaySubs(cb) {
+function getDaySubs() {
   var dayz = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
-  //var totals = [];
-
+  var totals = [];
   var daysQueries = dayz.map(function(day){
     var condition = {};
     condition[day] = true;
-    return database.employee.find(condition);
+    return database.weeklyShift.find(condition,"name").count();
   });
-
   //Wait for all the promises to complete
-  Promise.all(daysQueries, function(waitersForDays){
-    //console.log(waitersForDays.length);
-
-    var waitersForEachDay = waitersForDays.map(function(dayWaiters, index){
-      var day = dayz[index];
-      return {
-        day,
-        waiters : dayWaiters
-      }
-    });
-
-    cb(null, waitersForEachDay);
-
-  }).catch(cb);
+  return Promise.all(daysQueries);
+    // var waitersForEachDay = waitersForDays.map(function(dayWaiters, index){
+    //   var day = dayz[index];
+    //   return {
+    //     day,
+    //     waiters : dayWaiters
+    //   }
+    // });
+    //
+    // cb(null, waitersForEachDay);
 
 
   // database.employee.find({sunday:true}, function(err,result) {
