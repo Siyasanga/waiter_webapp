@@ -34,20 +34,15 @@ app.get("/:username",function(req, res) {
 app.get("/home/Admin",function(req, res) {
   var totals = [];
   getDaySubs().then(function(weeklySchedule) {
-    console.log(weeklySchedule);
-    // console.log(days);
-    totals = days.map(function(current, i) {
-      console.log(current,i);
-      // var day = {};
-
-      // var day.[current] = weeklySchedule[index];
-      return current;
-    });
+    var adminData = [];
+    for(i in days){
+      day = {};
+      day.day = days[i];
+      day.subs = weeklySchedule[i];
+      adminData.push(day);
+    }
+    res.render("adminLogin",{day:adminData});
   });
-  Promise.all(totals).then(function(results) {
-    console.log("Another Try: "+results+" down the drain");
-  })
-  res.render("adminLogin",{day:days});
 });
 // Updating availability of the logged in employee
 app.post("/:username",function(req, res) {
