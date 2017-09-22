@@ -1,18 +1,22 @@
-<div class="adminLogin">
-  <div class="nav-menu">
-    <a class="btn btn-primary" href="#" role="button">Reset</a>
-    <a class="btn btn-primary" href="/" role="button">Logout</a>
-  </div>
+<nav class="nav navbar-default">
+  <ul>
+    <a class="btn menu btn-primary" href="#" role="button">Reset</a>
+    <a class="btn menu btn-primary" href="/" role="button">Logout</a>
+  </ul>
+</nav>
+<div class="row adminLogin">
   <div class="overlay2">
   </div>
   <div class="card-group text-align-center">
     {{#each day}}
-    <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-    <div class="card-header"><h5>{{this}}</h5></div>
-      <div class="card-body">
-        <h6 class="card-title">Subscriptions: <span class="badge badge-secondary">{{counter}}</span></h6>
+    <a class="btn days" href="/admin/{{this.day}}">
+      <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
+      <div class="card-header"><h5>{{this.day}}</h5></div>
+        <div class="card-body">
+          <h6 class="card-title">Subscriptions: <span class="badge badge-secondary">{{this.subs}}</span></h6>
+        </div>
       </div>
-    </div>
+    </a>
     {{/each}}
   </div>
 </div>
