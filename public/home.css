@@ -8,7 +8,7 @@ body{
 nav{
   height: 90px;
   background-color: #00AF84;
-  position: relative;
+  text-align:right;
 }
 .container{
   position:fixed;
@@ -81,11 +81,6 @@ nav{
 #welcome{
   margin-top: 10px;
 }
-.nav-menu{
-  position: relative;;
-  top: -65px;
-  left: 986px;
-}
 .heading{
   padding-bottom: 10px;
 }
@@ -137,4 +132,17 @@ nav{
   width: 250px;
   text-align: center;
   border-radius: 2px;
+}
+.card-body{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.days{
+  text-decoration: none;
+  border-radius: 50px;
+  display: inline-block;
+}
+ul{
+  display: inline-block;
+  float:right;
 }
