@@ -6,10 +6,12 @@ body{
   position: relative;
 }
 nav{
-  height: 90px;
   background-color: #00AF84;
-  text-align:right;
 }
+.f1{
+  margin: 0px;
+}
+/*
 .container{
   position:fixed;
   height: 83%;
@@ -19,18 +21,17 @@ nav{
 .forms{
   float: right;
   position: fixed;
-  /*margin-top: 110px;*/
   top: 112px;
   left: 700px;
   opacity: 1;
 }
 .f1{
-  margin-top: -140px;
-  opacity: 1;
-
+  line-height: 90px;
+  vertical-align: middle;
 }
 .ff1{
   margin-right: 5px;
+  vertical-align: bottom;
 }
 .f2{
   color: Black;
@@ -71,7 +72,7 @@ nav{
   align-items: center;
 }
 .adminLogin{
-  /*margin-top: -20px;*/
+
 }
 #logout{
   position: fixed;
@@ -141,8 +142,4 @@ nav{
   text-decoration: none;
   border-radius: 50px;
   display: inline-block;
-}
-ul{
-  display: inline-block;
-  float:right;
-}
+}*/
