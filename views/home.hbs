@@ -1,39 +1,45 @@
-<div class="overlay">
-</div>
-<div class="forms">
-  <form class="form-inline" action="/home/login" method="post">
-    <div class="form-group f1">
-      <input type="text" name="username" required class="form-control ff1" placeholder="Enter username">
-      <input type="password" name="password" required class="form-control ff1" placeholder="Password">
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
-  </form>
-  {{#if messages.failedLogin}}
-  <small id="failedLogin" class="alert-danger">{{messages.failedLogin}}</small>
-  {{/if}}
-  <form action="/home/registration" method="post">
-    <div class="form-group f2">
-      <h2 class="heading">Register as a new employee</h2>
-      <label for="firstname">Firstname:</label>
-      <input class="form-control inReg" required name="firstname" type="text" id="firstname" placeholder="Enter your name"><br>
-      <label for="username">Username:</label>
-      <input class="form-control inReg" required name="username" type="text" id="username" placeholder="Enter your surname"><br>
-      {{#if messages.duplicateUser}}
-        <small id="newUser"class="alert-warning">{{messages.duplicateUser}}</small>
-      {{/if}}
-      <label for="pass">Create new password:</label>
-      <input class="form-control inReg" required name="pass" type="password" id="pass" placeholder="Enter new password"><br>
-      <label for="confirm">Confirm new password:</label>
-      <input class="form-control inReg" required name="confirm" type="password" id="confirm" placeholder="Confirm password"><br>
-      {{#if messages.mismatch}}
-        <small id="mismatch" class="invalid alert-warning">{{messages.mismatch}}</small>
-      {{/if}}
-      <button class="btn btn-primary" type="submit">Submit registration</button>
-      {{#if messages.regSuccess}}
-        <div id="regSuccess" class="alert alert-success" role="alert">
-          {{messages.regSuccess}}
+<nav class="navbar">
+  <div class="container-fluid">
+      <form class="navbar-form" action="/home/login" method="post">
+        <div class="form-group form-inline f1 justify-content-md-center">
+          <input type="text" name="username" required class="form-control" placeholder="Enter username">
+          <input type="password" name="password" required class="form-control ml-2" placeholder="Password">
+          <button type="submit" class="btn btn-primary ml-2">Sign in</button>
         </div>
-      {{/if}}
+        <small id="failedLogin" class="alert-danger">{{messages.failedLogin}}Incorrect username and password</small>
+      </form>
+  </div>
+</nav>
+<div class="container">
+  <div class="overlay">
+  </div>
+  <div class="row">
+    <div class="forms col-md-offset-6 col-md-6">
+      <form action="/home/registration" method="post">
+        <div class="form-group f2">
+          <h2 class="heading">Register as a new employee</h2>
+          <label for="firstname">Firstname:</label>
+          <input class="form-control inReg" required name="firstname" type="text" id="firstname" placeholder="Enter your name"><br>
+          <label for="username">Username:</label>
+          <input class="form-control inReg" required name="username" type="text" id="username" placeholder="Enter your surname"><br>
+          {{#if messages.duplicateUser}}
+            <small id="newUser"class="alert-warning">{{messages.duplicateUser}}</small>
+          {{/if}}
+          <label for="pass">Create new password:</label>
+          <input class="form-control inReg" required name="pass" type="password" id="pass" placeholder="Enter new password"><br>
+          <label for="confirm">Confirm new password:</label>
+          <input class="form-control inReg" required name="confirm" type="password" id="confirm" placeholder="Confirm password"><br>
+          {{#if messages.mismatch}}
+            <small id="mismatch" class="invalid alert-warning">{{messages.mismatch}}</small>
+          {{/if}}
+          <button class="btn btn-primary" type="submit">Submit registration</button>
+          {{#if messages.regSuccess}}
+            <div id="regSuccess" class="alert alert-success" role="alert">
+              {{messages.regSuccess}}
+            </div>
+          {{/if}}
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
