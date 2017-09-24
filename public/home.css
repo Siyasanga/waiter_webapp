@@ -11,20 +11,48 @@ nav{
 .f1{
   margin: 0px;
 }
-/*
-.container{
-  position:fixed;
-  height: 83%;
-  margin-left: 100px;
-
+#nav-container{
+  padding-top: 20px;
+  justify-content: right;
+  margin-right: 50px;
+}
+small{
+  border-radius: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: block;
+  margin-top: 4px;
+  width: -moz-max-content;
 }
 .forms{
-  float: right;
-  position: fixed;
-  top: 112px;
-  left: 700px;
-  opacity: 1;
+  margin-right: 50px;
+  margin-left: auto;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0);
+  -webkit-filter: blur(0px);
 }
+h2{
+  margin-top: 20px;
+  width: -moz-max-content;
+  margin-right: 50px;
+  overflow-x: visible;
+}
+.f2{
+  width: 250px;
+}
+.row{
+}
+.overlay{
+  position: absolute;
+  background-image: url("bgpic.jpg");
+  background-size: 60%;
+  width: 80%;
+  height: 80%;
+  -webkit-filter: blur(6px);
+  z-index: -15;
+  background-repeat: no-repeat;
+}
+/*
 .f1{
   line-height: 90px;
   vertical-align: middle;
