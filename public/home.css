@@ -1,19 +1,23 @@
-body{
-  width: 98.8vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  position: relative;
-}
 nav{
   background-color: #00AF84;
+  height: 97px;
+  padding-bottom: 0px;
+}
+.navbar-form{
+  height: 65px;
+  padding-top: 10px;
+  margin-left: auto;
+}
+.feedback{
+  height: 23px;
+  width: 100%;
+  margin-top: 5px;
+  margin-left: 1px;
 }
 .f1{
   margin: 0px;
 }
 #nav-container{
-  padding-top: 20px;
-  justify-content: right;
   margin-right: 50px;
 }
 small{
@@ -21,36 +25,30 @@ small{
   padding-left: 5px;
   padding-right: 5px;
   display: block;
-  margin-top: 4px;
+  width:max-content;
   width: -moz-max-content;
-}
-.forms{
-  margin-right: 50px;
-  margin-left: auto;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0);
-  -webkit-filter: blur(0px);
 }
 h2{
   margin-top: 20px;
   width: -moz-max-content;
-  margin-right: 50px;
-  overflow-x: visible;
+  display: block;
+  text-align: right;
+  text-shadow: 2px 2px 6px white;
 }
 .f2{
-  width: 250px;
-}
-.row{
+  text-shadow: 2px 2px 6px white;
+  font-weight: bold;
 }
 .overlay{
   position: absolute;
   background-image: url("bgpic.jpg");
-  background-size: 60%;
+  background-size: 100% 95%;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 80%;
   height: 80%;
   -webkit-filter: blur(6px);
   z-index: -15;
-  background-repeat: no-repeat;
 }
 /*
 .f1{

@@ -6,44 +6,49 @@
           <input type="password" name="password" required class="form-control ml-2" placeholder="Password">
           <button type="submit" class="btn btn-primary ml-2">Sign in</button>
         </div>
-        {{#if messages.failedLogin}}
-          <small id="failedLogin" class="alert-danger">{{messages.failedLogin}}</small>
-        {{/if}}
+        <div class="feedback">
+          {{#if messages.failedLogin}}
+            <small class="alert-danger">{{messages.failedLogin}}</small>
+          {{/if}}
+        </div>
       </form>
   </div>
 </nav>
 <div class="container">
-  <div class="row" id="fo">
-    <div class="col-md-4 forms">
-      <form action="/home/registration" method="post">
-        <div class="form-group f2">
-          <h2 class="heading" id="regHeading">Register as a new employee</h2>
-          <label for="firstname">Firstname:</label>
-          <input class="form-control inReg" required name="firstname" type="text" id="firstname" placeholder="Enter your name"><br>
-          <label for="username">Username:</label>
-          <input class="form-control inReg" required name="username" type="text" id="username" placeholder="Enter your surname">
+  <div class="row">
+    <div class="overlay">
+    </div>
+    <h2 class="col-md-12 heading" id="regHeading">Register as a new employee</h2>
+    <div class="col-md-9"></div>
+    <div class="col-md-3 forms">
+    <form action="/home/registration" method="post">
+      <div class="form-group f2">
+        <label for="firstname">Firstname:</label>
+        <input class="form-control inReg" required name="firstname" type="text" id="firstname" placeholder="Enter your name"><br>
+        <label for="username">Username:</label>
+        <input class="form-control inReg" required name="username" type="text" id="username" placeholder="Enter your surname">
+        <div class="feedback">
           {{#if messages.duplicateUser}}
             <small id="newUser"class="alert-warning">{{messages.duplicateUser}}</small>
           {{/if}}
-          <br>
-          <label for="pass">Create new password:</label>
-          <input class="form-control inReg" required name="pass" type="password" id="pass" placeholder="Enter new password"><br>
-          <label for="confirm">Confirm new password:</label>
-          <input class="form-control inReg" required name="confirm" type="password" id="confirm" placeholder="Confirm password">
+        </div>
+        <label for="pass">Create new password:</label>
+        <input class="form-control inReg" required name="pass" type="password" id="pass" placeholder="Enter new password"><br>
+        <label for="confirm">Confirm new password:</label>
+        <input class="form-control inReg" required name="confirm" type="password" id="confirm" placeholder="Confirm password">
+        <div class="feedback">
           {{#if messages.mismatch}}
             <small id="mismatch" class="invalid alert-warning">{{messages.mismatch}}</small>
           {{/if}}
-          <br>
-          <button class="btn btn-primary" type="submit">Submit registration</button>
-          {{#if messages.regSuccess}}
-            <div id="regSuccess" class="alert alert-success" role="alert">
-              {{messages.regSuccess}}
-            </div>
-          {{/if}}
         </div>
-      </form>
-    </div>
-    <div class="overlay">
+        <button class="btn btn-primary" type="submit">Submit registration</button>
+        {{#if messages.regSuccess}}
+          <div id="regSuccess" class="alert alert-success" role="alert">
+            {{messages.regSuccess}}
+          </div>
+        {{/if}}
+      </div>
+    </form>
     </div>
   </div>
 </div>
