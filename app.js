@@ -30,6 +30,17 @@ app.get("/:username",function(req, res) {
     }
   }) // end of findOne()
 }); // end of get()
+app.get("/admin/:day",function(req, res) {
+  var condition = {};
+  condition[req.params.day.toLowerCase()] = true;
+  database.weeklyShift.find(condition,function(err, waiters) {
+    if(err)
+      console.log("Error trying to find waiters for: "+req.params.day+"\n"+err);
+    else {
+      res.render("adminLogin",{current:req.params.day, waiter:waiters});
+    }
+  })
+})
 // Rendering screen for the logged in admin
 app.get("/home/Admin",function(req, res) {
   var totals = [];
@@ -91,7 +102,7 @@ app.post("/home/registration",function(req, res) {
       else
         registerUser(req,res);
     });
-  }
+  } // End of outer else
 });
 var port = process.env.PORT || 3000;
 var host = process.env.HOST || "http://localhost";
@@ -122,6 +133,7 @@ function setDays(user, days) {
   for(var i=0; i<days.length; i++){
     result[days[i]] = true;
   }
+  console.log(result);
   return result;
 }
 // Update days for logged in employee
@@ -148,49 +160,6 @@ function getDaySubs() {
     condition[day] = true;
     return database.weeklyShift.find(condition,"name").count();
   });
-  //Wait for all the promises to complete
+  // Wait for all the promises to complete
   return Promise.all(daysQueries);
-    // var waitersForEachDay = waitersForDays.map(function(dayWaiters, index){
-    //   var day = dayz[index];
-    //   return {
-    //     day,
-    //     waiters : dayWaiters
-    //   }
-    // });
-    //
-    // cb(null, waitersForEachDay);
-
-
-  // database.employee.find({sunday:true}, function(err,result) {
-  //   if(err)
-  //     console.log("Error finding '"+dayz[index]+"' in the weeklyShift:\n"+err);
-  //   else {
-  //     console.log(result);
-  //     totals.push({ day:dayz[index],
-  //                   subs:result.length});
-  //     console.log({ day:dayz[index],
-  //                   subs:result.length});
-  //   }
-  //
-  //
-  //
-  //
-  //
-  //   dayz.forEach(function(listItem, index) {
-  //     var condition = {};
-  //     condition[listItem] = true;
-  //
-  //     database.employee.find({sunday:true}, function(err,result) {
-  //       if(err)
-  //         console.log("Error finding '"+dayz[index]+"' in the weeklyShift:\n"+err);
-  //       else {
-  //         console.log(result);
-  //         totals.push({ day:dayz[index],
-  //                       subs:result.length});
-  //         console.log({ day:dayz[index],
-  //                       subs:result.length});
-  //       }
-  //     });
-  //   }); //
-  // console.log(totals);
-  }
+}

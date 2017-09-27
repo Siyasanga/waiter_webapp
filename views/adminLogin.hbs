@@ -1,22 +1,41 @@
-<nav class="navbar-nav fluid" role="navigation">
-  <ul>
-    <a class="navbar-text" href="#" role="button">Reset</a>
-    <a class="navbar-text" href="/" role="button">Logout</a>
-  </ul>
-</nav>
-<div class="row adminLogin">
-  <div class="overlay2">
+<nav class="navbar">
+  <div class="container" id="nav-container">
+      <div class="col-md-9"></div>
+      <div class="col-md btn-group mr-4">
+        <a class="navbar-text btn btn-primary" href="#" role="button">Reset</a>
+        <a class="navbar-text btn btn-primary" href="/" role="button">Logout</a>
+      </div>
   </div>
-  <div class="card-group text-align-center">
-    {{#each day}}
-    <a class="btn days" href="/admin/{{this.day}}">
-      <div class="card text-white bg-primary mb-3 mr-2" style="max-width: 20rem;">
-      <div class="card-header"><h5>{{this.day}}</h5></div>
+</nav>
+{{#if current}}
+  <div class="container-fluid overlay2">
+    <a id="link2admin" class="btn" href="/home/Admin">
+      <div id="current" class="card text-white bg-primary" style="width: 20rem;">
+      <div class="card-header"><h5>{{current}}</h5></div>
         <div class="card-body">
-          <h6 class="card-title">Subscriptions: <span class="badge badge-secondary">{{this.subs}}</span></h6>
+          {{#each waiter}}
+            <h6 class="card-title">{{this.name}}</h6>
+          {{/each}}
         </div>
       </div>
     </a>
-    {{/each}}
+  </div>
+{{/if}}
+<div class="container" id="adminLogin">
+  <div class="row">
+    <div class="row adminLogin">
+      <div class="card-group" id="cards">
+        {{#each day}}
+        <a class="btn days col-md-3 mb-3 ml-3" href="/admin/{{this.day}}">
+          <div class="card text-white bg-primary" style="max-width: 20rem; border-radius: 5px;">
+          <div class="card-header"><h5>{{this.day}}</h5></div>
+            <div class="card-body">
+              <h6 class="card-title">Subscriptions: <span class="badge badge-secondary">{{this.subs}}</span></h6>
+            </div>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+    </div>
   </div>
 </div>

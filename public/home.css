@@ -1,7 +1,11 @@
+body{
+  position: relative;
+}
 nav{
   background-color: #00AF84;
   height: 97px;
   padding-bottom: 0px;
+  position: fixed;
 }
 .navbar-form{
   height: 65px;
@@ -49,6 +53,61 @@ h2{
   height: 80%;
   -webkit-filter: blur(6px);
   z-index: -15;
+}
+#h3{
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+#updateForm{
+  text-align: center;
+}
+#loader{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 5px solid #ccc;
+  border-top-color: #00AF84;
+  margin: 30px auto;
+  animation: goround 1s linear infinite;
+}
+@keyframes goround{
+  from{transform: rotate(0deg)}
+  to{ transform: rotate(360deg)}
+}
+#feedback{
+  width: 250px;
+  margin: 30px auto;
+  display: none;
+}
+#regSuccess{
+  margin-top: 10px;
+  text-align: center;
+}
+#cards{
+  margin-top: 30px;
+  justify-content: center;
+}
+.overlay2{
+  width: 100%;
+  height: 85%;
+  position: fixed;
+  z-index: 1000;
+}
+#adminLogin{
+  position: relative;
+}
+#link2admin{
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+#current{
+  top: 20%;
+  left: 38%;
+  /*height: 500px;*/
 }
 /*
 .f1{
@@ -110,28 +169,6 @@ h2{
 }
 .heading{
   padding-bottom: 10px;
-}
-#loader{
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  border: 5px solid #ccc;
-  border-top-color: #00AF84;
-  margin: 30px auto;
-  animation: goround 1s linear infinite;
-}
-@keyframes goround{
-  from{transform: rotate(0deg)}
-  to{ transform: rotate(360deg)}
-}
-#feedback{
-  width: 250px;
-  margin: 30px auto;
-  display: none;
-}
-#regSuccess{
-  margin-top: 10px;
-  text-align: center;
 }
 #mismatch{
   display: block;
