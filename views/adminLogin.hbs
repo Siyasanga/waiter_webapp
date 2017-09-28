@@ -1,17 +1,28 @@
 <nav class="navbar">
   <div class="container" id="nav-container">
-      <div class="col-md-9"></div>
-      <div class="col-md btn-group mr-4">
-        <a class="navbar-text btn btn-primary" href="#" role="button">Reset</a>
+      <div class="col-md-4">
+        {{#if messages.reset}}
+          <div id="regSuccess" class="alert alert-success" role="alert">
+            {{messages.reset}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="col-md-5"></div>
+      <div class="col-md-2 ml-5 btn-group">
+        <a class="navbar-text btn btn-primary" href="/home/Admin/reset" role="button">Reset</a>
         <a class="navbar-text btn btn-primary" href="/" role="button">Logout</a>
       </div>
+      <div class="col-md-1"></div>
   </div>
 </nav>
 {{#if current}}
   <div class="container-fluid overlay2">
     <a id="link2admin" class="btn" href="/home/Admin">
       <div id="current" class="card text-white bg-primary" style="width: 20rem;">
-      <div class="card-header"><h5>{{current}}</h5></div>
+      <div class="card-header">
+        <h5 class="mt-2 mb-0">{{current}}</h5>
+        <div id="close">x</div>
+      </div>
         <div class="card-body">
           {{#each waiter}}
             <h6 class="card-title">{{this.name}}</h6>

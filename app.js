@@ -41,6 +41,17 @@ app.get("/admin/:day",function(req, res) {
     }
   })
 })
+app.get("/home/Admin/reset",function(req, res) {
+  database.weeklyShift.remove({},function(err) {
+    if(err)
+      console.log("Error trying to reset the weeklyShift collection:\n"+err);
+    else {
+      console.log("Database collection: weeklyShift cleared");
+      req.flash("reset","Schedule cleared and ready for the new week!");
+      res.redirect("/home/Admin");
+    }
+  })
+})
 // Rendering screen for the logged in admin
 app.get("/home/Admin",function(req, res) {
   var totals = [];

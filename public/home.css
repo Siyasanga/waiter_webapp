@@ -109,6 +109,13 @@ h2{
   left: 38%;
   /*height: 500px;*/
 }
+#close{
+  position: absolute;
+  top:10px;
+  left: 290px;
+  border-width: thick;
+  border-color: red;
+}
 /*
 .f1{
   line-height: 90px;
